@@ -1,5 +1,5 @@
 # irSony
-Receiver for Sony infrared remote and HID ruder pedals on Arduino Leonardo.
+Receiver for Sony infrared remote and HID rudder pedals on Arduino Leonardo.
 
 ## Files and credist
 * irSony.hs - Simple haskell script expected to run on a linux PC. It is receiving

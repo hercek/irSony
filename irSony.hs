@@ -53,8 +53,8 @@ processLines prevTime (prevLine : curLines@(curLine:_)) = do
         "11:59" -> putChar 'm'      -- effect -> mute
         "11:21" -> putChar 'p'      -- AMP on/off -> pause on/off
         "1:21"  -> putChar 'f'      -- TV on/off -> full screen on/off
-        "11:42" -> putChar '#'      -- TV/VTR -> cycle audio tracks
-        "11:39" -> putChar 'o'      -- tracking -> toggle OSD states
+        "11:39" -> putChar '#'      -- TV/VTR -> cycle audio tracks
+        "11:42" -> putChar 'o'      -- tracking -> toggle OSD states
         "11:69" -> putStr "\ESC[D"  -- tracking ↓ -> 10s back (left arrow)
         "11:68" -> putStr "\ESC[C"  -- tracking ↑ -> 10s forward (right arrow)
         "11:62" -> putStr "\ESC[B"  -- slow - -> 1m back (down arrow)
