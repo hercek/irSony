@@ -19,13 +19,13 @@ import System.IO
 import System.Exit
 import System.Process
 import System.Environment
+import Control.Concurrent(forkIO)
 import Data.Time.Clock
 
 repInterval :: NominalDiffTime
 repInterval = fromRational 0.3
 
 main = do
-  hSetBuffering stdout NoBuffering
   prgArgs <- getArgs
   fileName <-
     case prgArgs of
@@ -35,6 +35,10 @@ main = do
                       putStrLn "  The default device is /dev/irSony."
                       exitSuccess
       x:_        -> return x
+  hSetBuffering stdout NoBuffering
+  hSetBuffering stdin NoBuffering
+  hSetEcho stdin False
+  forkIO (getContents >>= putStr)
   fileContent <- readFile fileName
   curTime <- getCurrentTime
   processLines (addUTCTime (-repInterval) curTime)  ("" : lines fileContent)
